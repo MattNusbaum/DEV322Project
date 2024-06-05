@@ -60,10 +60,10 @@ export default function StartWorkoutScreen({navigation}) {
 
     const saveWorkoutData = async (workoutData) => {
         try {
-            const existingData = await AsyncStorage.getItem('workouts');
+            const existingData = await AsyncStorage.getItem('workout');
             const newData = existingData ? JSON.parse(existingData) : [];
             newData.push(workoutData);
-            await AsyncStorage.setItem('workouts', JSON.stringify(newData));
+            await AsyncStorage.setItem('workout', JSON.stringify(newData));
         } catch (error) {
             console.error('Failed to save data', error);
         }
