@@ -37,6 +37,15 @@ export default function HomeScreen({ navigation }) {
         <Text style={styles.buttonText}>Summary</Text>
       </View>
     </TouchableOpacity>
+    <TouchableOpacity
+     style={styles.button}
+     onPress={() => navigation.navigate('Location')}
+     activeOpacity={0.6}
+   >
+     <View style={styles.buttonTop}>
+       <Text style={styles.buttonText}>Show Location</Text>
+     </View>
+   </TouchableOpacity>
   </View>
   );
 }
