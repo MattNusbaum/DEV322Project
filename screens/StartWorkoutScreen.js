@@ -99,6 +99,7 @@ export default function StartWorkoutScreen({ navigation }) {
   );
 }
 
+//styling contributed to by Matthew Nusbaum
 const styles = StyleSheet.create({
   container: {
     flex: 1,
