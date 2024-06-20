@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+//page structure created by Duy Nguyen
 //partially worked on by Jaden
+
 const SummaryScreen = ({ navigation }) => {
   const [workoutHistory, setWorkoutHistory] = useState([]);
 
@@ -16,7 +18,7 @@ const SummaryScreen = ({ navigation }) => {
     };
 
     fetchWorkouts();
-  }, []);
+  }, []); //Duy Nguyen worked on this secion 
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
@@ -27,7 +29,7 @@ const SummaryScreen = ({ navigation }) => {
     </View>
   );
 
-  return (
+  return ( //Duy Nguyen worked on this secion
     <View style={styles.container}>
       <Image
         source={require('./../assets/images/complete.jpg')}
@@ -103,7 +105,7 @@ const SummaryScreen = ({ navigation }) => {
     </View>
   );
 }
-
+//Duy Nguyen worked on this secion
 const styles = StyleSheet.create({
   container: {
     flex: 1,
