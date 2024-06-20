@@ -81,6 +81,7 @@ export default function HomeScreen({ navigation }) {
   );
 }
 
+//Styling by Lorenzo and Matthew
 const styles = StyleSheet.create({
   container: {
     flex: 1,
