@@ -10,7 +10,7 @@ export default function HomeScreen({ navigation }) {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-
+//Navbar created by Lorenzo 
   return (
     <View style={styles.container}>
       <Image
