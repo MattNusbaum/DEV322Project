@@ -121,6 +121,7 @@ export default function AccelerometerScreen() {
   );
 }
 //styles
+//Styles done by Matthew and Lorenzo
 const styles = StyleSheet.create({
   container: {
     flex: 1,
