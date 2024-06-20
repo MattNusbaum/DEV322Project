@@ -42,7 +42,7 @@ const SummaryScreen = ({ navigation }) => {
           ListEmptyComponent={<Text style={styles.emptyMessage}>No workout history available.</Text>}
         />
       </View>
-//navigation
+
       {/* Button Section */}
       <View style={styles.buttonBackground}>
         <View style={styles.buttonContainer}>
