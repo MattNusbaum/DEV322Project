@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-//partially worked on by Jaden
+//partially worked on by Jaden and Duy
 const SummaryScreen = ({ navigation }) => {
   const [workoutHistory, setWorkoutHistory] = useState([]);
-
+//use effect hook to fetch workout data
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
+        //revieve data from asyncStorage
         const workoutsData = await AsyncStorage.getItem('workout');
         setWorkoutHistory(workoutsData ? JSON.parse(workoutsData) : []);
       } catch (error) {
         console.error("Failed to fetch workouts from storage", error);
       }
     };
-
+//get workout data
     fetchWorkouts();
   }, []);
-
+//write item with these attributes
   const renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text style={styles.title}>{item.name}</Text>
@@ -26,7 +27,7 @@ const SummaryScreen = ({ navigation }) => {
       <Text style={styles.text}>Date: {item.date}</Text>
     </View>
   );
-
+//use styles and images
   return (
     <View style={styles.container}>
       <Image
@@ -41,7 +42,7 @@ const SummaryScreen = ({ navigation }) => {
           ListEmptyComponent={<Text style={styles.emptyMessage}>No workout history available.</Text>}
         />
       </View>
-
+//navigation
       {/* Button Section */}
       <View style={styles.buttonBackground}>
         <View style={styles.buttonContainer}>
@@ -103,7 +104,7 @@ const SummaryScreen = ({ navigation }) => {
     </View>
   );
 }
-
+//styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
