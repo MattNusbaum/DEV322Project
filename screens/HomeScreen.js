@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
-
+//Code by Lorenzo Dacany
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
