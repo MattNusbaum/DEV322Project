@@ -70,6 +70,7 @@ export default function WorkoutListScreen() {
   );
 }
 
+// Styling code by Matthew Nusbaum, assisted with AI ChatGPT
 const styles = StyleSheet.create({
   container: {
     flex: 1,
