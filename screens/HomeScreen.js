@@ -1,52 +1,83 @@
-import React from 'react';
-import { View, Text, Button, StyleSheet, Image , TouchableOpacity} from 'react-native';
-import WorkoutListScreen from './WorkOutListScreen';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <View style={styles.container}>
-    <Image
-      source={require('./../assets/images/app_image.jpg')}
-      style={styles.image}
-    />
-    <Text style={styles.title}>We Go JIMMMMM</Text>
-    <TouchableOpacity
-      style={styles.button}
-      onPress={() => navigation.navigate('Workout List')}
-      activeOpacity={0.6} // Adjust the opacity when the button is pressed
-    >
-      <View style={styles.buttonTop}>
-        <Text style={styles.buttonText}>Go to Workout List</Text>
+      <Image
+        source={require('./../assets/images/aesthetic.jpg')}
+        style={styles.image}
+      />
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>WE GO JIM!</Text>
+        <Text style={styles.time}>{currentTime}</Text>
       </View>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={styles.button}
-      onPress={() => navigation.navigate('StartWorkout')}
-      activeOpacity={0.6}
-    >
-      <View style={styles.buttonTop}>
-        <Text style={styles.buttonText}>Start Workout</Text>
+
+      <View style={styles.buttonBackground}>
+        <View style={styles.buttonContainer}>
+        <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Running')}
+        activeOpacity={0.6}
+      >
+        <Image
+        source={require('../assets/images/running.png')}
+        style={styles.buttonImage}
+        />
+
+      </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('StartWorkout')}
+            activeOpacity={0.6}
+          >
+            <Image
+              source={require('./../assets/images/grid.png')}
+              style={styles.buttonImage}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Workout List')}
+            activeOpacity={0.6}
+          >
+            <Image
+              source={require('./../assets/images/training.png')}
+              style={styles.buttonImage}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Summary')}
+            activeOpacity={0.6}
+          >
+            <Image
+              source={require('./../assets/images/contract.png')}
+              style={styles.buttonImage}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('Location')}
+            activeOpacity={0.6}
+          >
+            <Image
+              source={require('./../assets/images/location.png')}
+              style={styles.buttonImage}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={styles.button}
-      onPress={() => navigation.navigate('Summary')}
-      activeOpacity={0.6}
-    >
-      <View style={styles.buttonTop}>
-        <Text style={styles.buttonText}>Summary</Text>
-      </View>
-    </TouchableOpacity>
-    <TouchableOpacity
-     style={styles.button}
-     onPress={() => navigation.navigate('Location')}
-     activeOpacity={0.6}
-   >
-     <View style={styles.buttonTop}>
-       <Text style={styles.buttonText}>Show Location</Text>
-     </View>
-   </TouchableOpacity>
-  </View>
+    </View>
   );
 }
 
@@ -57,37 +88,62 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#D3D3D3',
   },
+  titleContainer: {
+    position: 'absolute',
+    top: 50,
+    left: 95,
+    right: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: 12,
+    padding: 10,
+  },
   title: {
     fontSize: 24,
-    marginBottom: 20,
     fontWeight: 'bold',
-    backgroundColor: '#000000',
-    borderRadius: 12,
-    color:'white',
-    marginHorizontal: 20,
+    color: 'white',
+    alignItems: 'center',
+  },
+  time: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'white',
+    position: 'absolute',
+    top: 35,
+    left: 30,
+    right: 20,
+    padding: 10,
+    alignContent: 'center'
+  },
+  buttonBackground: {
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    
+  },
+  buttonContainer: {
+
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 10,
+        
   },
   button: {
-    backgroundColor: '#000000', // button_outline_color
-    borderRadius: 12, // Convert em to approximate px
-    marginBottom: 10,
+    flex: 1,
+    marginHorizontal: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
   },
-  buttonTop: {
-    borderWidth: 2,
-    borderColor: '#000000', // button_outline_color
-    backgroundColor: '#e8e8e8', // button_color
-    borderRadius: 12, // Convert em to approximate px
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-  },
-  buttonText: {
-    color: '#000000', // button_outline_color
-    fontSize: 17,
-    fontWeight: 'bold',
+  buttonImage: {
+    width: 30,
+    height: 30,
   },
   image: {
-    width: 300,
-    height: 400,
-    marginBottom: 20,
-    borderRadius: 20,
+    width: '120%',
+    height: '100%',
+    top: 0,
+    resizeMode: 'cover',
   },
 });
