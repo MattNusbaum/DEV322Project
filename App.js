@@ -10,7 +10,7 @@ import SummaryScreen from './screens/SummaryScreen';
 // import Accelerometer from './screens/Accelerometer';
 import AccelerometerScreen from './screens/AccelerometerScreen';
 import LocationScreen from './screens/LocationScreen';
-
+//Duy Nguyen worked on this file 
 const Stack = createStackNavigator();
 
 export default function App() {
