@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import * as Location from 'expo-location';
+//Code contributed by Duy
 
 const LocationScreen = () => {
     const [location, setLocation] = useState(null);
