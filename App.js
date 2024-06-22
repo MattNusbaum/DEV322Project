@@ -10,7 +10,7 @@ import SummaryScreen from './screens/SummaryScreen';
 // import Accelerometer from './screens/Accelerometer';
 import AccelerometerScreen from './screens/AccelerometerScreen';
 import LocationScreen from './screens/LocationScreen';
-//Duy Nguyen worked on this file 
+//Duy Nguyen & Thanh Vu(Terry) worked on this file 
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -18,6 +18,8 @@ export default function App() {
     //adding a overall layout for the entire application
     <View style={styles.container}> 
       <NavigationContainer>
+    
+        // Implemented by Terry Vu
         <Stack.Navigator 
           initialRouteName='Home'
           screenOptions={{
@@ -33,7 +35,7 @@ export default function App() {
             },
           }}
           >
-        
+          // Implemented by Terry Vu
           <Stack.Screen name="Home" component={HomeScreen} /> 
           <Stack.Screen name="Workout List" component={WorkOutListScreen} />
           <Stack.Screen name="StartWorkout" component={StartWorkoutScreen}/>
