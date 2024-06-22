@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import workouts from '../workouts.json'; // Import the JSON file
+import workouts from '../workouts.json'; // Import the JSON file from Terry's File
 
 const colors = {
   primary: 'grey',
@@ -26,6 +26,7 @@ const workoutImages = {
   // Add more mappings as needed
 };
 
+// Terry worked on this WorkoutListScreen
 export default function WorkoutListScreen() {
   const [data, setData] = useState([]);
   const [expandedId, setExpandedId] = useState(null);
