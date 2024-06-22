@@ -1,34 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-//partially worked on by Jaden and Duy
+
+// page structure created by Duy Nguyen
+// partially worked on by Jaden
+
 const SummaryScreen = ({ navigation }) => {
   const [workoutHistory, setWorkoutHistory] = useState([]);
-//use effect hook to fetch workout data
+
   useEffect(() => {
     const fetchWorkouts = async () => {
       try {
-        //revieve data from asyncStorage
         const workoutsData = await AsyncStorage.getItem('workout');
         setWorkoutHistory(workoutsData ? JSON.parse(workoutsData) : []);
       } catch (error) {
         console.error("Failed to fetch workouts from storage", error);
       }
     };
-//get workout data
+
     fetchWorkouts();
-  }, []);
-//write item with these attributes
+  }, []); // Duy Nguyen worked on this section
+
+  // format date to a more user-friendly format
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleString(); // Change this to customize the format if needed
+  };
+
+  // write item with these attributes
   const renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text style={styles.title}>{item.name}</Text>
       <Text style={styles.text}>Duration: {item.duration} seconds</Text>
-      <Text style={styles.text}>Calories Burned: {item.caloriesBurned} </Text>
-      <Text style={styles.text}>Date: {item.date}</Text>
+      <Text style={styles.text}>Calories Burned: {item.caloriesBurned}</Text>
+      <Text style={styles.text}>Date: {formatDate(item.date)}</Text>
     </View>
   );
-//use styles and images
-  return (
+
+  return ( // Duy Nguyen worked on this section
     <View style={styles.container}>
       <Image
         source={require('./../assets/images/complete.jpg')}
@@ -52,12 +61,11 @@ const SummaryScreen = ({ navigation }) => {
             activeOpacity={0.6}
           >
             <View style={styles.buttonTop}>
-            <Image
-              source={require('../assets/images/running.png')}
-              style={styles.buttonImage}
-            />
+              <Image
+                source={require('../assets/images/running.png')}
+                style={styles.buttonImage}
+              />
             </View>
-            
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
@@ -104,7 +112,8 @@ const SummaryScreen = ({ navigation }) => {
     </View>
   );
 }
-//styles
+
+// Duy Nguyen worked on this section
 const styles = StyleSheet.create({
   container: {
     flex: 1,
