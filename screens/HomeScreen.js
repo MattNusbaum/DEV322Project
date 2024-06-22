@@ -1,16 +1,17 @@
+
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
   const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
-
+//Code by Lorenzo Dacany
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-
+//Navbar created by Lorenzo 
   return (
     <View style={styles.container}>
       <Image
@@ -81,6 +82,7 @@ export default function HomeScreen({ navigation }) {
   );
 }
 
+//Styling by Lorenzo and Matthew
 const styles = StyleSheet.create({
   container: {
     flex: 1,
